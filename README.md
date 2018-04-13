@@ -30,6 +30,11 @@ To calculate the reward for being in $$s(t)$$ and taking action $$u(t)$$:
 
 $$-s(t)^{T}Q(t)s(t) - u(t)^{T}$$
 
+.. code-block:: console
+
+    $ pip install pyswarms
+
+
 # DDP
 
 Differential dynamic programming can be used to find the optimal policy for LQR control problems. 
