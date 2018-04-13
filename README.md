@@ -1,6 +1,10 @@
 # Differential-Dynamic-Programming
 
-Starter differential dynamic programming (DDP) code for replicating these two papers (one, two) autonomous helicopters. 
+Starter differential dynamic programming (DDP) code for replicating these two papers (one, two) autonomous helicopters.
+
+* GettingStarted.ipynb
+* DDP.py
+* iterative_LQR.py 
 
 # RL
 
@@ -29,11 +33,6 @@ where:
 To calculate the reward for being in $$s(t)$$ and taking action $$u(t)$$:
 
 $$-s(t)^{T}Q(t)s(t) - u(t)^{T}$$
-
-.. code-block:: console
-
-    $ pip install pyswarms
-
 
 # DDP
 
