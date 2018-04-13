@@ -22,9 +22,9 @@ s(t+1) = A(t)s(t) + B(t)u(t) + w(t)
 where:
 
 * t = 0, ..., H
-* $$A(t) \in R^{nxn}$$
-* $$B(t) \in R^{nxp}$$
-* $$w(t)$$ is a random variable (zero mean with finate variance)
+* $A(t) \in R^{nxn}$
+* $B(t) \in R^{nxp}$
+* $w(t)$ is a random variable (zero mean with finate variance)
 
 To calculate the reward for being in $$s(t)$$ and taking action $$u(t)$$:
 
