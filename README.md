@@ -2,9 +2,9 @@
 
 Starter differential dynamic programming (DDP) code for replicating these two papers (one, two) autonomous helicopters.
 
-* GettingStarted.ipynb
-* DDP.py
-* iterative_LQR.py 
+* Getting Started
+* DDP
+* iterative_LQR
 
 # RL
 
