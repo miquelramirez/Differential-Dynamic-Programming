@@ -1,8 +1,8 @@
 # Differential-Dynamic-Programming
 
-A friend of mine directed me to these two papers (one, two) by a group working on autonomous helicopters, and I wanted to wrap my head around Differential Dynamic Programming (DDP) by writing some code.
+Starter differential dynamic programming (DDP) code for replicating these two papers (one, two) autonomous helicopters. 
 
-# What is RL?
+# RL
 
 Reinforcement learning (RL) problems can be described as Markov decision processes (MDPs) can be defind by (S, A, T, H, s(0), R), where:
 
@@ -13,7 +13,7 @@ Reinforcement learning (RL) problems can be described as Markov decision process
 * s(0) - initial state
 * R - reward function (R: S x A -> R) 
 
-# What is LQR
+# LQR
 
 Linear quadratic regulators (LQRs) are a class of MDPs whose dynamic model is given by:
 
@@ -28,9 +28,9 @@ where:
 
 To calculate the reward for being in $$s(t)$$ and taking action $$u(t)$$:
 
-$-s(t)^{T}Q(t)s(t) - u(t)^{T}$
+$$-s(t)^{T}Q(t)s(t) - u(t)^{T}$$
 
-# What is DDP?
+# DDP
 
 Differential dynamic programming can be used to find the optimal policy for LQR control problems. 
 
