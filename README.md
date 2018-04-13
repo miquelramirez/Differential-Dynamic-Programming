@@ -28,7 +28,7 @@ where:
 
 To calculate the reward for being in $$s(t)$$ and taking action $$u(t)$$:
 
-$$-s(t)^{T}Q(t)s(t) - u(t)^{T}
+$-s(t)^{T}Q(t)s(t) - u(t)^{T}$
 
 # What is DDP?
 
