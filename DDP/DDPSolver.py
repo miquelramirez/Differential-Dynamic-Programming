@@ -40,13 +40,11 @@ class DDPSolver:
 
         self.zerosCommand = np.zeros((self.model.stateNumber, 1))
 
-        # What do these do?
         self.kList = []
         self.KList = []
         self.XList = []
         self.UList = []
 
-        # What do these do?
         self.k = np.zeros((self.model.stateNumber, 1))
         self.K = np.zeros((self.model.stateNumber, 1, self.model.stateNumber, 1))
         self.Qx = np.zeros((self.model.stateNumber, 1))
@@ -55,8 +53,10 @@ class DDPSolver:
 
     def solveTrajectory(self, Xinit, Xdes, T, dt, iterMax=20, stopCrit=1e-3):
         '''
-        Intialize variables, backward pass, forward pass,
-        stop when converge or iterMax
+        Intialize variables
+        backward pass
+        forward pass,
+        stop when converge or reach iterMax
         '''
 
         self.Xinit = Xinit
@@ -100,7 +100,57 @@ class DDPSolver:
                 self.U = self.UList[i]
 
                 self.model.computeAllModelDeriv(self.dt, self.X, self.U)
-                self.costfunction.compute
+                self.costfunction.computeAllCostDeriv(self.X, self.Xdes,self.U)
+
+                self.Qx = self.costfunction.lx + np.dot(self.model.fx.T, self.nextVx)
+                #same for all the rest
+
+                for j in range(self.model.stateNumber): # second order deriv of dynamic
+                    self.Qxx += np.dot(self.nextVx[j].item(), self.model.fxx[j])
+                    # same for Quxt and Quut
+
+                if(np.all(np.linalg.eigvals(self.Quut) <= 0)): # is Quut definite positive?
+                    if(self.mu=0):
+                        self.mu += 1e-4
+                    else:
+                        self.mu = self.mu*10
+                    self.completeBackwardFlag = 0
+                    break
+
+                self.QuuInv = np.linalg.inv(self.Quut)
+
+                self.k = -np.dot(self.QuuInv, self.Qu)
+                self.k = -np.dot(self.QuuInv, self.Quxt)
+
+                # Regularization
+                self.nextVx = self.Qx + np.dot(np.dot(self.K.T, self.Quut), self.k) \
+                        + np.dot(self.K.T, self.Qu) + np.dot(self.Quxt.T, self.k)
+                self.nextVxx = self.Qxx + np.dot(np.dot(self.K.T, self.Quut), self.k) \
+                        + np.dot(self.K.T, self.Quxt) + np.dot(self.Quxt.T, self.k)
+
+                self.kList.append(self.k)
+                self.KList.append(self.K)
+        self.kList.reverse()
+        self.KList.reverse()
+        return 0
+
+    def forwardLoop(self):
+        self.nextXList = [self.Xinit]
+        self.nextUList = []
+
+        self.changeAmount = 0.0
+        self.nextXList[0] = self.Xinit
+
+        self.alpha = self.alphaList[0]
+        for i in range(self.T):
+            self.nextUList.append(self.UList[i] + self.alpha*self.kList[i] \
+                    + np.dot(self.KList[i], (self.nextXList[i] - self.XList[i])))
+            self.model.computeNextState(self.dt, self.nextXList[i], self.nextUList[i])
+            self.nextXList.append(self.model.nextX)
+            for j in range(self.model.commandNumber):
+                self.changeAmount += np.abs(self.UList[j] - self.nextUList[j])
+            return 0
+            
 
 
 
