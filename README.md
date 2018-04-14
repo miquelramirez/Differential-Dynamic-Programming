@@ -4,9 +4,12 @@ This repo includes starter code and a brief overview on differential dynamic pro
 
 * Getting Started
 * DDP
-* iterative_LQR
 
-# Resources
+## Paper Highlights
+
+* Three key steps: 1) gather human pilot data, 2) find controller in simulation based on model, 2) test on helicopter (iterate as necessary)
+
+## Resources
 
 * Reinforcement Learning (Sutton & Barto) - nice introduction to dynamic programming
 * [Differential Dynamic Programming for Optimal Estimation](https://www.cc.gatech.edu/~dellaert/pubs/Kobilarov15icra.pdf) - helpful article
