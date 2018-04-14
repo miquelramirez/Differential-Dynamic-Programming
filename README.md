@@ -9,7 +9,9 @@ This repo includes starter code and a brief overview on differential dynamic pro
 
 ## Paper Highlights
 
-* Three key steps: 1) gather human pilot data, 2) find controller in simulation based on model, 2) test on helicopter (iterate as necessary)
+* The protocol follows three stages: 1) gather human pilot data, 2) find a controller in simulation based on the model developed from the training data, 2) test on helicopter (iterate as necessary)
+* Four maneuvers were tested: Flip, Roll, Tail-in Funnel, Nose-in Funnel
+* Flips and rolls presented unique noise challenges, so in their training they maneuvered full sweep arcs that approached flipping but didn't go all the way to inversion. Q and R cost matrices were coded by hand to create a controller that would flip indefinitely in their simulator.
 
 ## Resources
 
