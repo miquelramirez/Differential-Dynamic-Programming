@@ -3,9 +3,7 @@
 This repo includes starter code and a brief overview on differential dynamic programming (DDP) for operating your own autonomous helicopter! Well, at least to help you start implementing the code for this paper, [An Application of Reinforcement Learning to Aerobatic Helicopter Flight](http://heli.stanford.edu/papers/nips06-aerobatichelicopter.pdf).
 
 * [Getting Started](https://github.com/SioKCronin/Differential-Dynamic-Programming/blob/master/Getting%20Started.ipynb)
-* DDP.py
-* costFunction.py
-* dynamicModel.py
+* [DDP](https://github.com/SioKCronin/Differential-Dynamic-Programming/tree/master/DDP)
 
 ## Paper Highlights
 
@@ -20,5 +18,3 @@ This repo includes starter code and a brief overview on differential dynamic pro
 * Steve Brunton's awesome [Control Bootcamp](https://www.youtube.com/channel/UCm5mt-A4w61lknZ9lCsZtBw)
 * Brian Douglas' [playlist](https://www.youtube.com/watch?v=oBc_BHxw78s&list=PLUMWjy5jgHK1NC52DXXrriwihVrYZKqjk)
 * Emma Brunskill's [talks](https://www.youtube.com/watch?v=fIKkhoI1kF4&list=PLAsrlO2SCuzBVqN6V1CQSL4VdaGv7LawW) at Simons Institute
-
-
