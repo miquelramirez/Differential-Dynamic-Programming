@@ -150,11 +150,3 @@ class DDPSolver:
             for j in range(self.model.commandNumber):
                 self.changeAmount += np.abs(self.UList[j] - self.nextUList[j])
             return 0
-            
-
-
-
-
-
-
-
